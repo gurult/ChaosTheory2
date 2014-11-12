@@ -7,7 +7,7 @@ public final class CordSystem {
 	}
 	
 	public static double hillfunction(double x) {
-		return 0.5 * x; 
+		return 500 - 0.5 * x; 
 	}
 	
 	// function which converts from euclide cord. system to java cord. system.
@@ -23,11 +23,11 @@ public final class CordSystem {
 	
 	// function which converts from java cord. system to euclide cord. system.
 	
-	public static double convertToEuclidex(int x) {
+	public static double convertToEuclidex(double x) {
 		return (double) ((x - 20) / 30);
 	}
 	
-	public static double convertToEuclideY(int y) {
+	public static double convertToEuclideY(double y) {
 		return (double) ((y - 450) / (-30));
 	}
 }

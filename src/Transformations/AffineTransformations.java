@@ -1,6 +1,8 @@
 package Transformations;
 import java.awt.geom.Point2D;
 
+import objects_for_drawing.MyRectangle;
+
 // klase yra final, kad niekas negalëtø jos paveldët
 public final class AffineTransformations {
 
@@ -35,6 +37,15 @@ public final class AffineTransformations {
 		b.setLocation(functionX, functionY);
 	
 	}
+	
+	public static void affineTransform(Point2D a, Point2D b, double angDeg, char c) {
+		
+		if (c == 'p'){
+			affineTransformPos(a, b, angDeg);
+		} else {
+			affineTransformNeg(a, b, angDeg);
+		}
+	}
 //---------------------------------------------------------------------
 	// daro posuká taðko a atþvilgiu pagal laikrodþio rodyklæ
 	
@@ -57,5 +68,23 @@ public final class AffineTransformations {
 
 	}	
 //------------------------------------------------------------------------
-
+	public static void rotateRectangle(double kampas, Point2D point,MyRectangle rec, char p ) 
+	{
+		if (p == 'n')
+		{
+			affineTransformNeg(point, rec.a, kampas);
+			affineTransformNeg(point, rec.b, kampas);
+			affineTransformNeg(point, rec.c, kampas);
+			affineTransformNeg(point, rec.d, kampas);
+		}
+		
+		if (p == 'p')
+		{
+			affineTransformPos(point, rec.a, kampas);
+			affineTransformPos(point, rec.b, kampas);
+			affineTransformPos(point, rec.c, kampas);
+			affineTransformPos(point, rec.d, kampas);
+		}
+	}
+	
 }
